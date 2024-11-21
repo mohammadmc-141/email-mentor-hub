@@ -8,12 +8,13 @@ import type { Lesson } from "@/data/types";
 
 interface QuizProps {
   lesson: Lesson;
-  onComplete: (lessonId: number) => void;
+  onComplete: (lessonId: number, correctAnswers: number) => void;
 }
 
 export const Quiz = ({ lesson, onComplete }: QuizProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
   const currentQuestion = lesson.questions[currentQuestionIndex];
 
   const handleAnswerSubmit = () => {
@@ -24,6 +25,7 @@ export const Quiz = ({ lesson, onComplete }: QuizProps) => {
 
     if (selectedAnswer === currentQuestion.correctAnswer) {
       toast.success(currentQuestion.feedback || "Correct! Here's why: This answer best aligns with professional email practices.");
+      setCorrectAnswers(prev => prev + 1);
     } else {
       toast.error(currentQuestion.incorrectFeedback || "Incorrect. Consider the professional implications of your choice.");
     }
@@ -33,7 +35,7 @@ export const Quiz = ({ lesson, onComplete }: QuizProps) => {
       setCurrentQuestionIndex(prev => prev + 1);
       setSelectedAnswer(null);
     } else {
-      onComplete(lesson.id);
+      onComplete(lesson.id, correctAnswers + (selectedAnswer === currentQuestion.correctAnswer ? 1 : 0));
     }
   };
 

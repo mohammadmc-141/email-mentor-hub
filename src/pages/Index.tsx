@@ -30,16 +30,22 @@ const Index = () => {
     setShowQuiz(false);
   };
 
-  const completeLesson = (lessonId: number) => {
+  const completeLesson = (lessonId: number, correctAnswers: number) => {
     setLessons(prevLessons => {
       const newLessons = [...prevLessons];
       newLessons[lessonId - 1].progress = 100;
-      if (lessonId < newLessons.length) {
+      if (lessonId < newLessons.length && correctAnswers >= 3) {
         newLessons[lessonId].locked = false;
       }
       return newLessons;
     });
-    toast.success("Lesson completed! Great job!");
+    
+    if (correctAnswers >= 3) {
+      toast.success("Lesson completed! Great job!");
+    } else {
+      toast.error("You need at least 3 correct answers to unlock the next lesson!");
+    }
+    
     setShowQuiz(false);
   };
 
