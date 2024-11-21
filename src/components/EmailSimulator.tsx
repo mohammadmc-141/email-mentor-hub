@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-
-// Move scenarios to a separate file for better organization
 import { scenarios } from "./emailScenarios";
 
 export function EmailSimulator() {
@@ -17,6 +15,38 @@ export function EmailSimulator() {
   const [currentScenario, setCurrentScenario] = useState(0);
   const [showBossEmail, setShowBossEmail] = useState(true);
   const [selectedTemplate, setSelectedTemplate] = useState("");
+
+  const handleTemplateSelect = (templateId: string) => {
+    const selectedOption = scenarios[currentScenario].reply_options.find(
+      option => option.id === templateId
+    );
+    if (selectedOption) {
+      setContent(selectedOption.template);
+      setSelectedTemplate(templateId);
+
+      // Check if the template contains all key points
+      const hasAllKeyPoints = scenarios[currentScenario].key_points.every(point => 
+        selectedOption.template.toLowerCase().includes(point.toLowerCase())
+      );
+
+      if (hasAllKeyPoints) {
+        toast.success("Great response! Moving to next scenario...");
+        setTimeout(() => {
+          if (currentScenario < scenarios.length - 1) {
+            setCurrentScenario(prev => prev + 1);
+            setShowBossEmail(true);
+          } else {
+            toast.success("Congratulations! You've completed all scenarios!");
+            setCurrentScenario(0);
+          }
+          setTo("");
+          setSubject("");
+          setContent("");
+          setSelectedTemplate("");
+        }, 1500);
+      }
+    }
+  };
 
   const handleSend = () => {
     if (!to || !subject || !content) {
@@ -52,16 +82,6 @@ export function EmailSimulator() {
     setShowBossEmail(false);
     setTo(scenarios[currentScenario].from);
     setSubject(`Re: ${scenarios[currentScenario].subject}`);
-  };
-
-  const handleTemplateSelect = (templateId: string) => {
-    const selectedOption = scenarios[currentScenario].reply_options.find(
-      option => option.id === templateId
-    );
-    if (selectedOption) {
-      setContent(selectedOption.template);
-      setSelectedTemplate(templateId);
-    }
   };
 
   return (
