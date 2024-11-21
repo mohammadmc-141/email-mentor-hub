@@ -2,12 +2,13 @@ import { useState } from "react";
 import { LessonCard } from "@/components/LessonCard";
 import { EmailSimulator } from "@/components/EmailSimulator";
 import { Button } from "@/components/ui/button";
-import { Mail, BookOpen, ArrowLeft } from "lucide-react";
+import { Mail, BookOpen, ArrowLeft, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
 import { SignIn } from "@/components/SignIn";
 import { INITIAL_LESSONS, type Lesson } from "@/data/lessons";
 import { Quiz } from "@/components/Quiz";
 import { LessonContent } from "@/components/LessonContent";
+import { FinalQuiz } from "@/components/FinalQuiz";
 
 const Index = () => {
   const [showSimulator, setShowSimulator] = useState(false);
@@ -15,11 +16,13 @@ const Index = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [lessons, setLessons] = useState(INITIAL_LESSONS);
   const [showQuiz, setShowQuiz] = useState(false);
+  const [showFinalQuiz, setShowFinalQuiz] = useState(false);
 
   const handleLessonClick = (lessonId: number) => {
     if (!lessons[lessonId - 1].locked) {
       setSelectedLesson(lessonId);
       setShowQuiz(false);
+      setShowFinalQuiz(false);
     } else {
       toast.info("Complete the previous lesson first!");
     }
@@ -28,6 +31,7 @@ const Index = () => {
   const handleBackClick = () => {
     setSelectedLesson(null);
     setShowQuiz(false);
+    setShowFinalQuiz(false);
   };
 
   const completeLesson = (lessonId: number, correctAnswers: number) => {
@@ -49,6 +53,8 @@ const Index = () => {
     setShowQuiz(false);
   };
 
+  const allLessonsCompleted = lessons.every(lesson => lesson.progress === 100);
+
   if (!isSignedIn) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -67,7 +73,15 @@ const Index = () => {
       </header>
 
       <main className="container py-8 animate-fade-in">
-        {selectedLesson ? (
+        {showFinalQuiz ? (
+          <div className="space-y-6">
+            <Button variant="ghost" onClick={handleBackClick} className="mb-4">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Lessons
+            </Button>
+            <FinalQuiz />
+          </div>
+        ) : selectedLesson ? (
           <div className="space-y-6">
             <Button variant="ghost" onClick={handleBackClick} className="mb-4">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -93,18 +107,36 @@ const Index = () => {
               <div className="flex space-x-4">
                 <Button
                   variant={showSimulator ? "outline" : "default"}
-                  onClick={() => setShowSimulator(false)}
+                  onClick={() => {
+                    setShowSimulator(false);
+                    setShowFinalQuiz(false);
+                  }}
                 >
                   <BookOpen className="mr-2 h-4 w-4" />
                   Lessons
                 </Button>
                 <Button
                   variant={showSimulator ? "default" : "outline"}
-                  onClick={() => setShowSimulator(true)}
+                  onClick={() => {
+                    setShowSimulator(true);
+                    setShowFinalQuiz(false);
+                  }}
                 >
                   <Mail className="mr-2 h-4 w-4" />
                   Practice
                 </Button>
+                {allLessonsCompleted && (
+                  <Button
+                    variant={showFinalQuiz ? "default" : "outline"}
+                    onClick={() => {
+                      setShowSimulator(false);
+                      setShowFinalQuiz(true);
+                    }}
+                  >
+                    <GraduationCap className="mr-2 h-4 w-4" />
+                    Final Quiz
+                  </Button>
+                )}
               </div>
               <Button variant="outline" onClick={() => setIsSignedIn(false)}>
                 Sign Out
