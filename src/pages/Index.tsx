@@ -3,6 +3,7 @@ import { LessonCard } from "@/components/LessonCard";
 import { EmailSimulator } from "@/components/EmailSimulator";
 import { Button } from "@/components/ui/button";
 import { Mail, BookOpen } from "lucide-react";
+import { toast } from "sonner";
 
 const LESSONS = [
   {
