@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SignIn } from "@/components/SignIn";
 
-const LESSONS = [
+const INITIAL_LESSONS = [
   {
     id: 1,
     title: "Professional Tone & Language",
@@ -52,9 +52,10 @@ const Index = () => {
   const [showSimulator, setShowSimulator] = useState(false);
   const [selectedLesson, setSelectedLesson] = useState<number | null>(null);
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [lessons, setLessons] = useState(INITIAL_LESSONS);
 
   const handleLessonClick = (lessonId: number) => {
-    if (!LESSONS[lessonId - 1].locked) {
+    if (!lessons[lessonId - 1].locked) {
       setSelectedLesson(lessonId);
     } else {
       toast.info("Complete the previous lesson first!");
@@ -63,6 +64,20 @@ const Index = () => {
 
   const handleBackClick = () => {
     setSelectedLesson(null);
+  };
+
+  const completeLesson = (lessonId: number) => {
+    setLessons(prevLessons => {
+      const newLessons = [...prevLessons];
+      // Set current lesson to 100%
+      newLessons[lessonId - 1].progress = 100;
+      // Unlock next lesson if it exists
+      if (lessonId < newLessons.length) {
+        newLessons[lessonId].locked = false;
+      }
+      return newLessons;
+    });
+    toast.success("Lesson completed! Great job!");
   };
 
   if (!isSignedIn) {
@@ -90,7 +105,7 @@ const Index = () => {
               Back to Lessons
             </Button>
             <div className="grid gap-6">
-              {LESSONS[selectedLesson - 1].content?.map((section, index) => (
+              {lessons[selectedLesson - 1].content?.map((section, index) => (
                 <Card key={index} className="animate-fade-in">
                   <CardHeader>
                     <CardTitle>{section.title}</CardTitle>
@@ -100,16 +115,29 @@ const Index = () => {
                   </CardContent>
                 </Card>
               ))}
-              <Button 
-                onClick={() => {
-                  setShowSimulator(true);
-                  setSelectedLesson(null);
-                  toast.success("Now try what you've learned in the simulator!");
-                }}
-                className="animate-fade-in"
-              >
-                Practice in Simulator
-              </Button>
+              <div className="flex gap-4">
+                <Button 
+                  onClick={() => {
+                    completeLesson(selectedLesson);
+                    setShowSimulator(true);
+                    setSelectedLesson(null);
+                    toast.success("Now try what you've learned in the simulator!");
+                  }}
+                  className="animate-fade-in"
+                >
+                  Complete Lesson & Practice
+                </Button>
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    completeLesson(selectedLesson);
+                    setSelectedLesson(null);
+                  }}
+                  className="animate-fade-in"
+                >
+                  Complete Lesson
+                </Button>
+              </div>
             </div>
           </div>
         ) : (
@@ -140,7 +168,7 @@ const Index = () => {
               <EmailSimulator />
             ) : (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {LESSONS.map((lesson) => (
+                {lessons.map((lesson) => (
                   <LessonCard
                     key={lesson.id}
                     title={lesson.title}
