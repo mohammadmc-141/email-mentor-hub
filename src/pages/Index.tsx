@@ -57,15 +57,15 @@ const Index = () => {
 
   if (!isSignedIn) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-100 via-violet-100 to-indigo-100 flex items-center justify-center p-4">
         <SignIn onSignIn={() => setIsSignedIn(true)} />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-violet-100 to-indigo-100">
+      <header className="bg-white/80 backdrop-blur-sm border-b">
         <div className="container py-6">
           <h1 className="text-3xl font-bold text-primary">Email Etiquette Training</h1>
           <p className="mt-2 text-muted-foreground">Master the art of professional email communication</p>
