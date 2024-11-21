@@ -24,15 +24,16 @@ export const Quiz = ({ lesson, onComplete }: QuizProps) => {
 
     if (selectedAnswer === currentQuestion.correctAnswer) {
       toast.success(currentQuestion.feedback || "Correct! Here's why: This answer best aligns with professional email practices.");
-      
-      if (currentQuestionIndex < lesson.questions.length - 1) {
-        setCurrentQuestionIndex(prev => prev + 1);
-        setSelectedAnswer(null);
-      } else {
-        onComplete(lesson.id);
-      }
     } else {
       toast.error(currentQuestion.incorrectFeedback || "Incorrect. Consider the professional implications of your choice.");
+    }
+    
+    // Move to next question regardless of correct/incorrect answer
+    if (currentQuestionIndex < lesson.questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1);
+      setSelectedAnswer(null);
+    } else {
+      onComplete(lesson.id);
     }
   };
 
