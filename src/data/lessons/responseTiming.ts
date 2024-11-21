@@ -31,58 +31,36 @@ export const responseTimingLessonData: Lesson = {
   questions: [
     {
       id: 1,
-      text: "How quickly should you respond to urgent business matters?",
+      text: "In a global enterprise environment with multiple time zones, what is the most effective strategy for managing urgent communications?",
       options: [
-        "Within 2-4 hours",
-        "Within 24 hours",
-        "Within 48 hours",
-        "Within 72 hours"
+        "Respond immediately regardless of time",
+        "Implement a comprehensive follow-the-sun protocol with escalation procedures and clear handoff processes",
+        "Delegate to local teams",
+        "Set standard response times"
       ],
-      correctAnswer: 0
+      correctAnswer: 1
     },
     {
       id: 2,
-      text: "What is the appropriate response time for standard business requests?",
+      text: "How should you handle competing priorities when managing responses to multiple high-stakes stakeholders?",
       options: [
-        "Immediately",
-        "Within 2-4 hours",
-        "Within 24 hours",
-        "Within one week"
+        "First-come, first-served basis",
+        "Implement a strategic response matrix considering business impact, urgency, and relationship value",
+        "Delegate to team members",
+        "Quick responses to all"
       ],
-      correctAnswer: 2
+      correctAnswer: 1
     },
     {
       id: 3,
-      text: "Which factor is most important when assessing email urgency?",
+      text: "What is the most effective approach for managing email communication during critical project phases?",
       options: [
-        "Length of the email",
-        "Time of day received",
-        "Impact on business operations",
-        "Number of recipients"
+        "Constant availability",
+        "Structured communication protocol with designated response windows, escalation paths, and backup systems",
+        "Automated responses",
+        "Delegation to project team"
       ],
-      correctAnswer: 2
-    },
-    {
-      id: 4,
-      text: "What should be included in an out-of-office auto-reply?",
-      options: [
-        "Personal contact information",
-        "Detailed reason for absence",
-        "Return date and alternative contacts",
-        "Social media handles"
-      ],
-      correctAnswer: 2
-    },
-    {
-      id: 5,
-      text: "How should you handle non-urgent emails received on Friday afternoon?",
-      options: [
-        "Respond immediately regardless of importance",
-        "Ignore until Monday morning",
-        "Acknowledge receipt if weekend delay expected",
-        "Forward to colleagues"
-      ],
-      correctAnswer: 2
+      correctAnswer: 1
     }
   ]
 };

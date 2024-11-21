@@ -27,59 +27,60 @@ export const professionalToneLessonData: Lesson = {
       text: "Email communication can be a powerful tool for building and maintaining professional relationships:\n\n1. Establishing Trust\n- Consistent communication style\n- Reliable response patterns\n- Following through on commitments\n- Maintaining confidentiality\n\n2. Showing Professionalism\n- Anticipating needs and questions\n- Providing complete information\n- Being proactive in communication\n- Accepting responsibility when appropriate\n\n3. Building Rapport\n- Appropriate personal touches\n- Remembering previous interactions\n- Showing genuine interest\n- Maintaining boundaries\n\n4. Long-term Relationship Management\n- Regular check-ins when appropriate\n- Thoughtful follow-ups\n- Celebration of achievements\n- Professional networking maintenance"
     }
   ],
+
   questions: [
     {
       id: 1,
-      text: "Which of the following best demonstrates professional tone in email communication?",
+      text: "In a multinational corporate environment, which approach best demonstrates cultural awareness in professional tone?",
       options: [
-        "Hey! Need that report ASAP!!!",
-        "Dear Mr. Smith, I hope this email finds you well. Could you please send the report by Friday?",
-        "yo, where's the report at?",
-        "Send report now please"
+        "Using American English idioms to establish rapport",
+        "Maintaining neutral, culturally-inclusive language while adapting formality based on regional norms",
+        "Always using the most formal language possible",
+        "Addressing everyone by their first name to show friendliness"
       ],
       correctAnswer: 1
     },
     {
       id: 2,
-      text: "What should you avoid in professional emails?",
+      text: "When addressing a sensitive situation involving multiple stakeholders, what is the most effective communication strategy?",
       options: [
-        "Clear and concise language",
-        "Proper greetings",
-        "Excessive punctuation and emotional language",
-        "Formal closings"
+        "Using emotional language to show empathy",
+        "Copying all relevant parties to ensure transparency",
+        "Crafting a measured response that acknowledges the issue while maintaining professionalism and proposing concrete solutions",
+        "Responding quickly to show urgency"
       ],
       correctAnswer: 2
     },
     {
       id: 3,
-      text: "Which of the following is most important when building professional relationships through email?",
+      text: "In the context of crisis communication, which approach best maintains professional relationships?",
       options: [
-        "Using informal language to seem friendly",
-        "Maintaining consistent communication and following through on commitments",
-        "Sending frequent check-in emails multiple times per day",
-        "Using lots of emoticons to show personality"
+        "Immediate detailed response to all concerns",
+        "Strategic communication with clear acknowledgment, impact assessment, and action plan, while maintaining composure",
+        "Delegating responses to appropriate team members",
+        "Brief acknowledgments to show quick response time"
       ],
       correctAnswer: 1
     },
     {
       id: 4,
-      text: "When addressing a concern in a professional email, what is the best approach?",
+      text: "When negotiating project deadlines via email, which approach is most effective?",
       options: [
-        "Express anger to show the seriousness of the situation",
-        "Use all caps to emphasize important points",
-        "State the issue clearly and propose solutions professionally",
-        "Demand immediate action with multiple exclamation marks"
+        "Direct demands with firm deadlines",
+        "Vague timeframes to maintain flexibility",
+        "Detailed analysis of constraints and possibilities with proposed solutions and alternatives",
+        "Short responses to maintain efficiency"
       ],
       correctAnswer: 2
     },
     {
       id: 5,
-      text: "What is the most appropriate way to follow up on a meeting?",
+      text: "How should you handle confidential information in professional email chains?",
       options: [
-        "Send a casual message asking for updates",
-        "Write a formal email summarizing key points and next steps",
-        "Wait for the other person to contact you",
-        "Send multiple short reminder emails"
+        "Mark all emails as confidential",
+        "Implement a comprehensive information classification system with appropriate handling protocols for each level",
+        "Only share on need-to-know basis",
+        "Use encrypted attachments"
       ],
       correctAnswer: 1
     }

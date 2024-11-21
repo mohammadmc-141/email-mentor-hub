@@ -23,34 +23,34 @@ export const emailAutomationLessonData: Lesson = {
   questions: [
     {
       id: 1,
-      text: "What is the primary benefit of email templates?",
+      text: "What is the most effective strategy for implementing email automation in an enterprise environment?",
       options: [
-        "They make emails longer",
-        "They save time and ensure consistency",
-        "They impress recipients",
-        "They increase email volume"
+        "Basic auto-replies",
+        "Comprehensive workflow automation with intelligent routing, priority handling, and integration with business processes",
+        "Template system only",
+        "Manual filtering"
       ],
       correctAnswer: 1
     },
     {
       id: 2,
-      text: "Which email organization system is most effective?",
+      text: "How should you optimize email workflow automation for complex business processes?",
       options: [
-        "Keeping all emails in the inbox",
-        "Creating a logical folder structure and using filters",
-        "Deleting all emails immediately",
-        "Printing important emails"
+        "Standard filters",
+        "AI-powered workflow system with custom rules, integration APIs, and performance analytics",
+        "Basic automation",
+        "Manual processing"
       ],
       correctAnswer: 1
     },
     {
       id: 3,
-      text: "What is the best practice for email batch processing?",
+      text: "What is the most sophisticated approach to managing email communications across multiple business units?",
       options: [
-        "Checking emails constantly throughout the day",
-        "Setting specific times for email processing",
-        "Responding to emails as they arrive",
-        "Delegating all email responses"
+        "Centralized system",
+        "Distributed automation framework with unit-specific workflows, cross-functional integration, and unified reporting",
+        "Separate systems",
+        "Manual coordination"
       ],
       correctAnswer: 1
     }

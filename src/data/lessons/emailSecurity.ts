@@ -23,36 +23,36 @@ export const emailSecurityLessonData: Lesson = {
   questions: [
     {
       id: 1,
-      text: "What is the best practice for handling sensitive information in emails?",
+      text: "What is the most comprehensive approach to handling confidential information in enterprise email systems?",
       options: [
-        "Send it in plain text",
-        "Use encryption and secure transfer methods",
-        "Share it only with trusted colleagues",
-        "Save it for in-person discussions"
+        "Password protection only",
+        "Multi-layered security protocol including encryption, access controls, audit trails, and data classification",
+        "Restricted distribution lists",
+        "Verbal communication only"
       ],
       correctAnswer: 1
     },
     {
       id: 2,
-      text: "How can you identify a potential phishing email?",
+      text: "How should you manage email security in a BYOD (Bring Your Own Device) environment?",
       options: [
-        "It's from someone you know",
-        "It has a professional signature",
-        "It creates urgency and asks for sensitive information",
-        "It's written in perfect English"
+        "Standard security protocols",
+        "Comprehensive mobile device management with containerization, conditional access, and security policies",
+        "Email access restrictions",
+        "Company devices only"
       ],
-      correctAnswer: 2
+      correctAnswer: 1
     },
     {
       id: 3,
-      text: "What should you do when accessing emails on public Wi-Fi?",
+      text: "What is the most effective approach to preventing social engineering attacks through email?",
       options: [
-        "Use a VPN connection",
-        "Download all attachments immediately",
-        "Share your location",
-        "Use remember password option"
+        "Spam filters only",
+        "Integrated security approach with AI-powered threat detection, user training, and incident response protocols",
+        "Email restrictions",
+        "Manual screening"
       ],
-      correctAnswer: 0
+      correctAnswer: 1
     }
   ]
 };

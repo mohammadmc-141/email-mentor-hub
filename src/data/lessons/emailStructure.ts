@@ -28,59 +28,60 @@ export const emailStructureLessonData: Lesson = {
       text: "Example 1: Project Update Email\n\nSubject: Q4 Marketing Campaign Update - Action Required by Dec 15\n\nDear Marketing Team,\n\nI hope this email finds you well. I'm writing to provide an update on our Q4 marketing campaign and outline next steps.\n\nCurrent Status:\n- Website updates: 90% complete\n- Social media content: Scheduled through December\n- Email sequences: Under review\n\nRequired Actions:\n1. Review attached content calendar\n2. Submit feedback by December 15\n3. Schedule team meeting for final approval\n\nPlease let me know if you have any questions.\n\nBest regards,\n[Name]\n\nExample 2: Client Follow-up Email\n\nSubject: Thank You for Meeting - Next Steps for Project Implementation\n\nDear [Client Name],\n\nThank you for taking the time to meet with us yesterday. This email summarizes our discussion and outlines the next steps.\n\nKey Points Discussed:\n- Project timeline\n- Budget considerations\n- Resource allocation\n\nNext Steps:\n1. [Action item]\n2. [Action item]\n3. [Action item]\n\nI'll send a detailed proposal by [date].\n\nBest regards,\n[Name]"
     }
   ],
+
   questions: [
     {
       id: 1,
-      text: "What is the recommended maximum length for email paragraphs?",
+      text: "When composing a complex project proposal email, which structural approach maximizes effectiveness?",
       options: [
-        "1-2 lines",
-        "3-4 lines",
-        "7-8 lines",
-        "10+ lines"
+        "Single paragraph with all information",
+        "Hierarchical structure with executive summary, detailed sections, and clear action items",
+        "Multiple short emails for different aspects",
+        "Bullet points only"
       ],
       correctAnswer: 1
     },
     {
       id: 2,
-      text: "What is the ideal length for a subject line?",
+      text: "In a multinational business context, what is the most effective subject line structure?",
       options: [
-        "1-2 words",
-        "3-4 words",
-        "5-7 words",
-        "10+ words"
+        "Brief and general",
+        "Project code - Action Required - Deadline - Key Topic [Classification]",
+        "Detailed description of content",
+        "Priority level indicator only"
       ],
-      correctAnswer: 2
+      correctAnswer: 1
     },
     {
       id: 3,
-      text: "Which element should come first in a professional email body?",
+      text: "How should you structure an email addressing multiple complex issues with various stakeholders?",
       options: [
-        "Detailed background information",
-        "Personal greetings and small talk",
-        "The most important information or main purpose",
-        "Supporting documentation"
+        "Separate emails for each issue",
+        "One comprehensive email with clear section breaks, stakeholder-specific action items, and a summary matrix",
+        "Brief overview with attachments",
+        "Multiple CCs with specific instructions"
       ],
-      correctAnswer: 2
+      correctAnswer: 1
     },
     {
       id: 4,
-      text: "What is the best practice for handling attachments in emails?",
+      text: "What is the most effective way to structure negative feedback in a professional email?",
       options: [
-        "Always compress files regardless of size",
-        "Never mention attachments in the email body",
-        "Clearly reference attachments and use proper naming conventions",
-        "Send multiple emails with single attachments"
+        "Direct criticism with examples",
+        "Sandwich method with specific improvements",
+        "Structured analysis with context, impact assessment, specific examples, and constructive improvement plan",
+        "Brief overview of issues"
       ],
       correctAnswer: 2
     },
     {
       id: 5,
-      text: "Which closing is most appropriate for a formal business email?",
+      text: "When implementing an email template system, which approach is most effective for maintaining consistency while allowing flexibility?",
       options: [
-        "Cheers!",
-        "Best regards,",
-        "See ya!",
-        "Thanks!"
+        "Rigid templates for all communications",
+        "Modular template system with customizable components based on communication type and audience",
+        "Basic guidelines only",
+        "Separate templates for each department"
       ],
       correctAnswer: 1
     }

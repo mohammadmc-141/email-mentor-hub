@@ -20,37 +20,38 @@ export const emailEtiquetteLessonData: Lesson = {
       text: "Maintain professional standards in digital communication:\n\n1. Email Signature\n- Include essential contact information\n- Keep formatting consistent\n- Follow company guidelines\n- Update when necessary\n\n2. File Attachments\n- Use appropriate file formats\n- Consider file size limitations\n- Provide clear file names\n- Mention attachments in the email body"
     }
   ],
+
   questions: [
     {
       id: 1,
-      text: "When is it appropriate to use 'Reply All'?",
+      text: "In a situation involving conflicting stakeholder interests, what is the most appropriate email etiquette approach?",
       options: [
-        "Always, to keep everyone informed",
-        "When all recipients need to see your response",
-        "Never, to avoid cluttering inboxes",
-        "Only when responding to your boss"
+        "Copy all parties for transparency",
+        "Implement a strategic communication plan with separate targeted messages and careful stakeholder management",
+        "Maintain minimal communication",
+        "Use group emails only"
       ],
       correctAnswer: 1
     },
     {
       id: 2,
-      text: "What should you do if you need more time to respond to an email?",
+      text: "How should you handle sensitive personnel matters in email communications?",
       options: [
-        "Ignore the email until you can respond fully",
-        "Send a quick acknowledgment with an estimated response time",
-        "Forward it to someone else",
-        "Respond immediately with incomplete information"
+        "Brief, direct messages",
+        "Comprehensive documentation with appropriate confidentiality measures, legal considerations, and clear action plans",
+        "Verbal communication only",
+        "Standard HR templates"
       ],
       correctAnswer: 1
     },
     {
       id: 3,
-      text: "Which file naming convention is most appropriate for email attachments?",
+      text: "What is the most effective approach for managing email threads with multiple decision-makers?",
       options: [
-        "doc1.pdf",
-        "Project_Report_Final_v2_2024.pdf",
-        "final_final_really_final.pdf",
-        "123.pdf"
+        "Separate emails to each person",
+        "Structured thread management with clear decision points, stakeholder roles, and action tracking",
+        "Group emails only",
+        "Minimal communication"
       ],
       correctAnswer: 1
     }
