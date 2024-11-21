@@ -21,9 +21,13 @@ export function EmailSimulator() {
       setContent(selectedOption.template);
       setSelectedTemplate(templateId);
 
-      const hasAllKeyPoints = scenarios[currentScenario].key_points.every(point => 
-        selectedOption.template.toLowerCase().includes(point.toLowerCase())
-      );
+      // Check if the template contains all key points (case-insensitive)
+      const hasAllKeyPoints = scenarios[currentScenario].key_points.every(point => {
+        const pointWords = point.toLowerCase().split(' ');
+        return pointWords.every(word => 
+          selectedOption.template.toLowerCase().includes(word)
+        );
+      });
 
       if (hasAllKeyPoints) {
         toast.success("Great response! Moving to next scenario...");
