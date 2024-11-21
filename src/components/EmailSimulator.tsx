@@ -21,15 +21,7 @@ export function EmailSimulator() {
       setContent(selectedOption.template);
       setSelectedTemplate(templateId);
 
-      // Check if the template contains all key points (case-insensitive)
-      const hasAllKeyPoints = scenarios[currentScenario].key_points.every(point => {
-        const pointWords = point.toLowerCase().split(' ');
-        return pointWords.every(word => 
-          selectedOption.template.toLowerCase().includes(word)
-        );
-      });
-
-      if (hasAllKeyPoints) {
+      if (selectedOption.isCorrect) {
         toast.success("Great response! Moving to next scenario...");
         setTimeout(() => {
           if (currentScenario < scenarios.length - 1) {
@@ -44,7 +36,7 @@ export function EmailSimulator() {
           }
         }, 1500);
       } else {
-        toast.error("Try to address all key points in your response");
+        toast.error("Try another response that better addresses the key points");
       }
     }
   };
