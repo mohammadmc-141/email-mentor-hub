@@ -4,6 +4,7 @@ import { responseTimingLessonData } from "./lessons/responseTiming";
 import { emailEtiquetteLessonData } from "./lessons/emailEtiquette";
 import { emailSecurityLessonData } from "./lessons/emailSecurity";
 import { emailAutomationLessonData } from "./lessons/emailAutomation";
+import type { Lesson } from "./types";
 
 export type { Lesson } from "./types";
 
