@@ -64,18 +64,26 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-violet-100 to-indigo-100">
-      <header className="bg-white/80 backdrop-blur-sm border-b">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 transition-all duration-500">
+      <header className="bg-white/90 backdrop-blur-sm border-b border-violet-100 sticky top-0 z-10 transition-all duration-300">
         <div className="container py-6">
-          <h1 className="text-3xl font-bold text-primary">Email Etiquette Training</h1>
-          <p className="mt-2 text-muted-foreground">Master the art of professional email communication</p>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent animate-fade-in">
+            Email Etiquette Training
+          </h1>
+          <p className="mt-2 text-muted-foreground text-lg animate-fade-in delay-100">
+            Master the art of professional email communication
+          </p>
         </div>
       </header>
 
       <main className="container py-8 animate-fade-in">
         {showFinalQuiz ? (
           <div className="space-y-6">
-            <Button variant="ghost" onClick={handleBackClick} className="mb-4">
+            <Button 
+              variant="ghost" 
+              onClick={handleBackClick} 
+              className="mb-4 hover:bg-violet-50 transition-colors"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Lessons
             </Button>
@@ -83,7 +91,11 @@ const Index = () => {
           </div>
         ) : selectedLesson ? (
           <div className="space-y-6">
-            <Button variant="ghost" onClick={handleBackClick} className="mb-4">
+            <Button 
+              variant="ghost" 
+              onClick={handleBackClick} 
+              className="mb-4 hover:bg-violet-50 transition-colors"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Lessons
             </Button>
@@ -95,7 +107,10 @@ const Index = () => {
             ) : (
               <>
                 <LessonContent lesson={lessons[selectedLesson - 1]} />
-                <Button onClick={() => setShowQuiz(true)} className="animate-fade-in">
+                <Button 
+                  onClick={() => setShowQuiz(true)} 
+                  className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105"
+                >
                   Take Quiz
                 </Button>
               </>
@@ -111,8 +126,9 @@ const Index = () => {
                     setShowSimulator(false);
                     setShowFinalQuiz(false);
                   }}
+                  className="group transition-all duration-300 hover:bg-violet-100 hover:text-violet-700"
                 >
-                  <BookOpen className="mr-2 h-4 w-4" />
+                  <BookOpen className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
                   Lessons
                 </Button>
                 <Button
@@ -121,8 +137,9 @@ const Index = () => {
                     setShowSimulator(true);
                     setShowFinalQuiz(false);
                   }}
+                  className="group transition-all duration-300 hover:bg-violet-100 hover:text-violet-700"
                 >
-                  <Mail className="mr-2 h-4 w-4" />
+                  <Mail className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
                   Practice
                 </Button>
                 {allLessonsCompleted && (
@@ -132,13 +149,18 @@ const Index = () => {
                       setShowSimulator(false);
                       setShowFinalQuiz(true);
                     }}
+                    className="group transition-all duration-300 hover:bg-violet-100 hover:text-violet-700"
                   >
-                    <GraduationCap className="mr-2 h-4 w-4" />
+                    <GraduationCap className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
                     Final Quiz
                   </Button>
                 )}
               </div>
-              <Button variant="outline" onClick={() => setIsSignedIn(false)}>
+              <Button 
+                variant="outline" 
+                onClick={() => setIsSignedIn(false)}
+                className="hover:bg-red-50 hover:text-red-600 hover:border-red-200 transition-colors"
+              >
                 Sign Out
               </Button>
             </div>
