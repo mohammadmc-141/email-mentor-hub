@@ -36,7 +36,12 @@ export function EmailSimulator() {
           }
         }, 1500);
       } else {
-        toast.error("Try another response that better addresses the key points");
+        toast.error("Incorrect response. Let's start from the beginning.");
+        setTimeout(() => {
+          setCurrentScenario(0);
+          setContent("");
+          setSelectedTemplate("");
+        }, 1500);
       }
     }
   };
