@@ -9,11 +9,9 @@ import { toast } from "sonner";
 import { scenarios } from "./emailScenarios";
 
 export function EmailSimulator() {
-  const [to, setTo] = useState("");
-  const [subject, setSubject] = useState("");
-  const [content, setContent] = useState("");
   const [currentScenario, setCurrentScenario] = useState(0);
   const [selectedTemplate, setSelectedTemplate] = useState("");
+  const [content, setContent] = useState("");
 
   const handleTemplateSelect = (templateId: string) => {
     const selectedOption = scenarios[currentScenario].reply_options.find(
@@ -36,8 +34,6 @@ export function EmailSimulator() {
             toast.success("Congratulations! You've completed all scenarios!");
             setCurrentScenario(0);
           }
-          setTo("");
-          setSubject("");
           setContent("");
           setSelectedTemplate("");
         }, 1500);
@@ -46,8 +42,8 @@ export function EmailSimulator() {
   };
 
   const handleSend = () => {
-    if (!to || !subject || !content) {
-      toast.error("Please fill in all fields");
+    if (!content) {
+      toast.error("Please select a template first");
       return;
     }
 
@@ -68,8 +64,6 @@ export function EmailSimulator() {
       toast.error("Try to address all key points in your response");
     }
 
-    setTo("");
-    setSubject("");
     setContent("");
     setSelectedTemplate("");
   };
@@ -89,7 +83,6 @@ export function EmailSimulator() {
         <div className="space-y-2">
           <label className="text-sm font-medium">To:</label>
           <Input 
-            placeholder="recipient@example.com"
             value={scenarios[currentScenario].from}
             readOnly
             className="bg-gray-100"
@@ -98,7 +91,6 @@ export function EmailSimulator() {
         <div className="space-y-2">
           <label className="text-sm font-medium">Subject:</label>
           <Input 
-            placeholder="Enter a clear, concise subject"
             value={`Re: ${scenarios[currentScenario].subject}`}
             readOnly
             className="bg-gray-100"
@@ -118,7 +110,6 @@ export function EmailSimulator() {
         <div className="space-y-2">
           <label className="text-sm font-medium">Message:</label>
           <Textarea 
-            placeholder="Select a template to see the message"
             className="min-h-[200px] bg-gray-100"
             value={content}
             readOnly
