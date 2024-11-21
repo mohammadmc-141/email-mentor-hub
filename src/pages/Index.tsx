@@ -24,6 +24,10 @@ const LESSONS = [
       {
         title: "Common Mistakes to Avoid",
         text: "• Using informal abbreviations (e.g., 'thx', 'asap')\n• Writing in all caps\n• Being too casual or too formal\n• Including emotional language",
+      },
+      {
+        title: "Examples Comparison",
+        text: "Unprofessional:\n'Hey! Need that report ASAP!!! Thx'\n\nProfessional:\n'Hello [Name],\n\nI hope this email finds you well. Could you please send me the report when possible? I would appreciate receiving it by [specific date/time].\n\nThank you for your help.\n\nBest regards,\n[Your name]'",
       }
     ]
   },
@@ -77,7 +81,7 @@ const Index = () => {
             </Button>
             <div className="grid gap-6">
               {LESSONS[selectedLesson - 1].content?.map((section, index) => (
-                <Card key={index}>
+                <Card key={index} className="animate-fade-in">
                   <CardHeader>
                     <CardTitle>{section.title}</CardTitle>
                   </CardHeader>
@@ -92,6 +96,7 @@ const Index = () => {
                   setSelectedLesson(null);
                   toast.success("Now try what you've learned in the simulator!");
                 }}
+                className="animate-fade-in"
               >
                 Practice in Simulator
               </Button>
