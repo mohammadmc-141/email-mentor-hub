@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, BookOpen, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { SignIn } from "@/components/SignIn";
 
 const LESSONS = [
   {
@@ -50,6 +51,7 @@ const LESSONS = [
 const Index = () => {
   const [showSimulator, setShowSimulator] = useState(false);
   const [selectedLesson, setSelectedLesson] = useState<number | null>(null);
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   const handleLessonClick = (lessonId: number) => {
     if (!LESSONS[lessonId - 1].locked) {
@@ -62,6 +64,14 @@ const Index = () => {
   const handleBackClick = () => {
     setSelectedLesson(null);
   };
+
+  if (!isSignedIn) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <SignIn onSignIn={() => setIsSignedIn(true)} />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -104,20 +114,25 @@ const Index = () => {
           </div>
         ) : (
           <>
-            <div className="flex justify-end space-x-4 mb-8">
-              <Button
-                variant={showSimulator ? "outline" : "default"}
-                onClick={() => setShowSimulator(false)}
-              >
-                <BookOpen className="mr-2 h-4 w-4" />
-                Lessons
-              </Button>
-              <Button
-                variant={showSimulator ? "default" : "outline"}
-                onClick={() => setShowSimulator(true)}
-              >
-                <Mail className="mr-2 h-4 w-4" />
-                Practice
+            <div className="flex justify-between items-center space-x-4 mb-8">
+              <div className="flex space-x-4">
+                <Button
+                  variant={showSimulator ? "outline" : "default"}
+                  onClick={() => setShowSimulator(false)}
+                >
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  Lessons
+                </Button>
+                <Button
+                  variant={showSimulator ? "default" : "outline"}
+                  onClick={() => setShowSimulator(true)}
+                >
+                  <Mail className="mr-2 h-4 w-4" />
+                  Practice
+                </Button>
+              </div>
+              <Button variant="outline" onClick={() => setIsSignedIn(false)}>
+                Sign Out
               </Button>
             </div>
 
