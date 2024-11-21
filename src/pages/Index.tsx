@@ -4,11 +4,10 @@ import { EmailSimulator } from "@/components/EmailSimulator";
 import { Button } from "@/components/ui/button";
 import { Mail, BookOpen, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SignIn } from "@/components/SignIn";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 import { INITIAL_LESSONS, type Lesson } from "@/data/lessons";
+import { Quiz } from "@/components/Quiz";
+import { LessonContent } from "@/components/LessonContent";
 
 const Index = () => {
   const [showSimulator, setShowSimulator] = useState(false);
@@ -16,15 +15,11 @@ const Index = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [lessons, setLessons] = useState(INITIAL_LESSONS);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
   const handleLessonClick = (lessonId: number) => {
     if (!lessons[lessonId - 1].locked) {
       setSelectedLesson(lessonId);
       setShowQuiz(false);
-      setCurrentQuestionIndex(0);
-      setSelectedAnswer(null);
     } else {
       toast.info("Complete the previous lesson first!");
     }
@@ -33,35 +28,6 @@ const Index = () => {
   const handleBackClick = () => {
     setSelectedLesson(null);
     setShowQuiz(false);
-  };
-
-  const startQuiz = () => {
-    setShowQuiz(true);
-    setCurrentQuestionIndex(0);
-    setSelectedAnswer(null);
-  };
-
-  const handleAnswerSubmit = () => {
-    if (selectedAnswer === null) {
-      toast.error("Please select an answer");
-      return;
-    }
-
-    const currentLesson = lessons[selectedLesson! - 1];
-    const currentQuestion = currentLesson.questions[currentQuestionIndex];
-
-    if (selectedAnswer === currentQuestion.correctAnswer) {
-      toast.success("Correct answer!");
-      if (currentQuestionIndex < currentLesson.questions.length - 1) {
-        setCurrentQuestionIndex(prev => prev + 1);
-        setSelectedAnswer(null);
-      } else {
-        completeLesson(selectedLesson!);
-        setShowQuiz(false);
-      }
-    } else {
-      toast.error("Incorrect answer. Try again!");
-    }
   };
 
   const completeLesson = (lessonId: number) => {
@@ -74,6 +40,7 @@ const Index = () => {
       return newLessons;
     });
     toast.success("Lesson completed! Great job!");
+    setShowQuiz(false);
   };
 
   if (!isSignedIn) {
@@ -83,41 +50,6 @@ const Index = () => {
       </div>
     );
   }
-
-  const renderQuiz = () => {
-    const currentLesson = lessons[selectedLesson! - 1];
-    const currentQuestion = currentLesson.questions[currentQuestionIndex];
-
-    return (
-      <Card className="animate-fade-in">
-        <CardHeader>
-          <CardTitle>Quiz - Question {currentQuestionIndex + 1}</CardTitle>
-          <CardDescription>
-            {currentQuestionIndex + 1} of {currentLesson.questions.length}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <p className="text-lg font-medium">{currentQuestion.text}</p>
-            <RadioGroup
-              value={selectedAnswer?.toString()}
-              onValueChange={(value) => setSelectedAnswer(parseInt(value))}
-            >
-              {currentQuestion.options.map((option, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <RadioGroupItem value={index.toString()} id={`option-${index}`} />
-                  <Label htmlFor={`option-${index}`}>{option}</Label>
-                </div>
-              ))}
-            </RadioGroup>
-            <Button onClick={handleAnswerSubmit} className="mt-4">
-              Submit Answer
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -136,23 +68,17 @@ const Index = () => {
               Back to Lessons
             </Button>
             {showQuiz ? (
-              renderQuiz()
+              <Quiz 
+                lesson={lessons[selectedLesson - 1]} 
+                onComplete={completeLesson}
+              />
             ) : (
-              <div className="grid gap-6">
-                {lessons[selectedLesson - 1].content?.map((section, index) => (
-                  <Card key={index} className="animate-fade-in">
-                    <CardHeader>
-                      <CardTitle>{section.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="whitespace-pre-line">{section.text}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-                <Button onClick={startQuiz} className="animate-fade-in">
+              <>
+                <LessonContent lesson={lessons[selectedLesson - 1]} />
+                <Button onClick={() => setShowQuiz(true)} className="animate-fade-in">
                   Take Quiz
                 </Button>
-              </div>
+              </>
             )}
           </div>
         ) : (

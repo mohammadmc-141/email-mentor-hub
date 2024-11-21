@@ -1,13 +1,14 @@
-export interface Question {
-  id: number;
-  text: string;
-  options: string[];
-  correctAnswer: number;
-}
-
 export interface LessonContent {
   title: string;
   text: string;
+}
+
+export interface Question {
+  text: string;
+  options: string[];
+  correctAnswer: number;
+  feedback?: string;
+  incorrectFeedback?: string;
 }
 
 export interface Lesson {
@@ -15,7 +16,7 @@ export interface Lesson {
   title: string;
   description: string;
   progress: number;
-  locked?: boolean;
-  content: LessonContent[];
+  locked: boolean;
+  content?: LessonContent[];
   questions: Question[];
 }
