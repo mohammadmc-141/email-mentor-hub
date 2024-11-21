@@ -38,6 +38,24 @@ const INITIAL_LESSONS = [
     description: "Master the art of structuring clear, readable emails",
     progress: 0,
     locked: true,
+    content: [
+      {
+        title: "Basic Email Structure",
+        text: "A well-structured email consists of:\n\n1. Subject Line: Clear and specific\n2. Greeting: Appropriate salutation\n3. Introduction: Purpose of the email\n4. Body: Main content in clear paragraphs\n5. Conclusion: Clear action items or next steps\n6. Signature: Professional closing"
+      },
+      {
+        title: "Formatting Best Practices",
+        text: "• Use short paragraphs (3-4 lines maximum)\n• Include white space between paragraphs\n• Use bullet points for lists\n• Bold important information sparingly\n• Keep sentences concise\n• Use proper spacing and alignment"
+      },
+      {
+        title: "Subject Line Guidelines",
+        text: "Good subject lines should be:\n\n• Specific and relevant\n• 5-7 words maximum\n• Action-oriented when needed\n• Searchable for future reference\n\nExample:\nPoor: 'Meeting'\nBetter: 'Marketing Strategy Meeting - Dec 15, 2pm'"
+      },
+      {
+        title: "Email Body Organization",
+        text: "1. Start with the main point\n2. Provide necessary context\n3. Detail specific requests or information\n4. End with clear next steps\n\nExample Structure:\n\nDear [Name],\n\nI hope this email finds you well. I'm writing to [main purpose].\n\n[Context and details]\n\n[Specific request or action items]\n\nPlease let me know if you have any questions.\n\nBest regards,\n[Your name]"
+      }
+    ]
   },
   {
     id: 3,
@@ -45,7 +63,25 @@ const INITIAL_LESSONS = [
     description: "Understand when and how quickly to respond to different types of emails",
     progress: 0,
     locked: true,
-  },
+    content: [
+      {
+        title: "Response Time Guidelines",
+        text: "General response time expectations:\n\n• Urgent matters: Within 2-4 hours\n• Standard business requests: Within 24 hours\n• Non-urgent matters: Within 48 hours\n• FYI emails: Within 72 hours or no response needed"
+      },
+      {
+        title: "Identifying Email Urgency",
+        text: "Factors to consider:\n\n1. Sender's position and relationship\n2. Subject line indicators (e.g., 'Urgent', 'Action Required')\n3. Content and deadline mentions\n4. Project timeline impact\n5. Number of recipients (fewer usually means more urgent)"
+      },
+      {
+        title: "Managing Response Expectations",
+        text: "Best practices:\n\n• Set up an auto-reply when unavailable\n• Send acknowledgment emails for complex requests\n• Communicate delays proactively\n• Use 'urgent' flags responsibly\n• Consider time zones for international communication"
+      },
+      {
+        title: "Out-of-Office Protocol",
+        text: "When away:\n\n1. Set clear away dates\n2. Provide alternative contact\n3. Set expectations for response timing\n4. List emergency procedures\n5. Update calendar and team members\n\nExample:\n\nThank you for your email. I am out of the office from [date] to [date] with limited email access. For urgent matters, please contact [name] at [contact info]. I will respond to all other emails upon my return."
+      }
+    ]
+  }
 ];
 
 const Index = () => {
