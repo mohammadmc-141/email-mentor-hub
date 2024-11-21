@@ -5,6 +5,7 @@ export const professionalToneLessonData: Lesson = {
   title: "Professional Tone & Language",
   description: "Learn how to write emails that strike the perfect professional tone",
   progress: 0,
+  locked: false,
   content: [
     {
       title: "Understanding Professional Tone",
@@ -27,7 +28,6 @@ export const professionalToneLessonData: Lesson = {
       text: "Email communication can be a powerful tool for building and maintaining professional relationships:\n\n1. Establishing Trust\n- Consistent communication style\n- Reliable response patterns\n- Following through on commitments\n- Maintaining confidentiality\n\n2. Showing Professionalism\n- Anticipating needs and questions\n- Providing complete information\n- Being proactive in communication\n- Accepting responsibility when appropriate\n\n3. Building Rapport\n- Appropriate personal touches\n- Remembering previous interactions\n- Showing genuine interest\n- Maintaining boundaries\n\n4. Long-term Relationship Management\n- Regular check-ins when appropriate\n- Thoughtful follow-ups\n- Celebration of achievements\n- Professional networking maintenance"
     }
   ],
-
   questions: [
     {
       id: 1,
