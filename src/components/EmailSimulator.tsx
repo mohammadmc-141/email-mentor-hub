@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
@@ -17,6 +16,7 @@ export function EmailSimulator() {
     const selectedOption = scenarios[currentScenario].reply_options.find(
       option => option.id === templateId
     );
+    
     if (selectedOption) {
       setContent(selectedOption.template);
       setSelectedTemplate(templateId);
@@ -30,42 +30,19 @@ export function EmailSimulator() {
         setTimeout(() => {
           if (currentScenario < scenarios.length - 1) {
             setCurrentScenario(prev => prev + 1);
+            setContent("");
+            setSelectedTemplate("");
           } else {
             toast.success("Congratulations! You've completed all scenarios!");
             setCurrentScenario(0);
+            setContent("");
+            setSelectedTemplate("");
           }
-          setContent("");
-          setSelectedTemplate("");
         }, 1500);
-      }
-    }
-  };
-
-  const handleSend = () => {
-    if (!content) {
-      toast.error("Please select a template first");
-      return;
-    }
-
-    const scenario = scenarios[currentScenario];
-    const hasAllKeyPoints = scenario.key_points.every(point => 
-      content.toLowerCase().includes(point.toLowerCase())
-    );
-
-    if (hasAllKeyPoints) {
-      toast.success("Great response! You've addressed all key points professionally.");
-      if (currentScenario < scenarios.length - 1) {
-        setCurrentScenario(prev => prev + 1);
       } else {
-        toast.success("Congratulations! You've completed all scenarios!");
-        setCurrentScenario(0);
+        toast.error("Try to address all key points in your response");
       }
-    } else {
-      toast.error("Try to address all key points in your response");
     }
-
-    setContent("");
-    setSelectedTemplate("");
   };
 
   return (
@@ -123,9 +100,6 @@ export function EmailSimulator() {
             ))}
           </ul>
         </div>
-        <Button className="w-full" onClick={handleSend}>
-          Send Email
-        </Button>
       </CardContent>
     </Card>
   );
