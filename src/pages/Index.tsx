@@ -53,8 +53,8 @@ const Index = () => {
     setShowQuiz(false);
   };
 
-  // Remove the allLessonsCompleted check to make final quiz always accessible
-  
+  const allLessonsCompleted = lessons.every(lesson => lesson.progress === 100);
+
   if (!isSignedIn) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-100 via-violet-100 to-indigo-100 flex items-center justify-center p-4">
@@ -142,17 +142,19 @@ const Index = () => {
                   <Mail className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
                   Practice
                 </Button>
-                <Button
-                  variant={showFinalQuiz ? "default" : "outline"}
-                  onClick={() => {
-                    setShowSimulator(false);
-                    setShowFinalQuiz(true);
-                  }}
-                  className="group transition-all duration-300 hover:bg-violet-100 hover:text-violet-700"
-                >
-                  <GraduationCap className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                  Final Quiz
-                </Button>
+                {allLessonsCompleted && (
+                  <Button
+                    variant={showFinalQuiz ? "default" : "outline"}
+                    onClick={() => {
+                      setShowSimulator(false);
+                      setShowFinalQuiz(true);
+                    }}
+                    className="group transition-all duration-300 hover:bg-violet-100 hover:text-violet-700"
+                  >
+                    <GraduationCap className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                    Final Quiz
+                  </Button>
+                )}
               </div>
               <Button 
                 variant="outline" 

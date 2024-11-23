@@ -5,7 +5,7 @@ export const emailAutomationLessonData: Lesson = {
   title: "Email Automation & Efficiency",
   description: "Learn to use email automation tools and improve productivity",
   progress: 0,
-  locked: false,
+  locked: true,
   content: [
     {
       title: "Email Automation Basics",

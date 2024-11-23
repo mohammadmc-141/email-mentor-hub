@@ -5,7 +5,7 @@ export const emailEtiquetteLessonData: Lesson = {
   title: "Email Etiquette & Best Practices",
   description: "Learn essential email etiquette rules and best practices for professional communication",
   progress: 0,
-  locked: false,
+  locked: true,
   content: [
     {
       title: "Understanding Email Etiquette",
@@ -20,6 +20,7 @@ export const emailEtiquetteLessonData: Lesson = {
       text: "Maintain professional standards in digital communication:\n\n1. Email Signature\n- Include essential contact information\n- Keep formatting consistent\n- Follow company guidelines\n- Update when necessary\n\n2. File Attachments\n- Use appropriate file formats\n- Consider file size limitations\n- Provide clear file names\n- Mention attachments in the email body"
     }
   ],
+
   questions: [
     {
       id: 1,

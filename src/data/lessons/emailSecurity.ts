@@ -5,7 +5,7 @@ export const emailSecurityLessonData: Lesson = {
   title: "Email Security & Privacy",
   description: "Master essential email security practices and protect sensitive information",
   progress: 0,
-  locked: false,
+  locked: true,
   content: [
     {
       title: "Email Security Fundamentals",
