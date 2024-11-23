@@ -2,47 +2,36 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { scenarios } from "./emailScenarios";
 
 export function EmailSimulator() {
   const [currentScenario, setCurrentScenario] = useState(0);
-  const [selectedTemplate, setSelectedTemplate] = useState("");
   const [content, setContent] = useState("");
 
-  const handleTemplateSelect = (templateId: string) => {
-    const selectedOption = scenarios[currentScenario].reply_options.find(
-      option => option.id === templateId
-    );
-    
-    if (selectedOption) {
-      setContent(selectedOption.template);
-      setSelectedTemplate(templateId);
+  const handleSubmit = () => {
+    const correctTemplate = scenarios[currentScenario].reply_options.find(
+      option => option.isCorrect
+    )?.template || "";
 
-      if (selectedOption.isCorrect) {
-        toast.success("Great response! Moving to next scenario...");
-        setTimeout(() => {
-          if (currentScenario < scenarios.length - 1) {
-            setCurrentScenario(prev => prev + 1);
-            setContent("");
-            setSelectedTemplate("");
-          } else {
-            toast.success("Congratulations! You've completed all scenarios!");
-            setCurrentScenario(0);
-            setContent("");
-            setSelectedTemplate("");
-          }
-        }, 1500);
-      } else {
-        toast.error("Incorrect response. Let's start from the beginning.");
-        setTimeout(() => {
+    // Simple similarity check - you could make this more sophisticated
+    const isCorrect = content.length >= correctTemplate.length * 0.7;
+
+    if (isCorrect) {
+      toast.success("Great response! Moving to next scenario...");
+      setTimeout(() => {
+        if (currentScenario < scenarios.length - 1) {
+          setCurrentScenario(prev => prev + 1);
+          setContent("");
+        } else {
+          toast.success("Congratulations! You've completed all scenarios!");
           setCurrentScenario(0);
           setContent("");
-          setSelectedTemplate("");
-        }, 1500);
-      }
+        }
+      }, 1500);
+    } else {
+      toast.error("Your response needs improvement. Try to be more comprehensive!");
     }
   };
 
@@ -75,24 +64,20 @@ export function EmailSimulator() {
           />
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium">Choose a Response Template:</label>
-          <RadioGroup value={selectedTemplate} onValueChange={handleTemplateSelect} className="space-y-2">
-            {scenarios[currentScenario].reply_options.map((option) => (
-              <div key={option.id} className="flex items-center space-x-2">
-                <RadioGroupItem value={option.id} id={`template-${option.id}`} />
-                <Label htmlFor={`template-${option.id}`}>{option.label}</Label>
-              </div>
-            ))}
-          </RadioGroup>
-        </div>
-        <div className="space-y-2">
           <label className="text-sm font-medium">Message:</label>
           <Textarea 
-            className="min-h-[200px] bg-gray-100"
+            className="min-h-[200px]"
             value={content}
-            readOnly
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Type your response here..."
           />
         </div>
+        <Button 
+          onClick={handleSubmit}
+          className="w-full"
+        >
+          Submit Response
+        </Button>
         <div className="bg-gray-50 p-4 rounded-lg">
           <h3 className="font-medium mb-2">Key Points to Address:</h3>
           <ul className="list-disc list-inside">
@@ -100,6 +85,20 @@ export function EmailSimulator() {
               <li key={index}>{point}</li>
             ))}
           </ul>
+        </div>
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <h3 className="font-medium mb-2">Example Response Templates:</h3>
+          <div className="space-y-2">
+            {scenarios[currentScenario].reply_options.map((option) => (
+              <div 
+                key={option.id}
+                className="cursor-pointer hover:bg-gray-100 p-2 rounded"
+                onClick={() => setContent(option.template)}
+              >
+                {option.label}
+              </div>
+            ))}
+          </div>
         </div>
       </CardContent>
     </Card>
