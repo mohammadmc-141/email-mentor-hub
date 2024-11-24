@@ -18,13 +18,13 @@ export function EmailSimulator() {
     )?.template || "";
 
     // Find the closest matching response template
-    const matchingResponse = scenarios[currentScenario].reply_options.reduce((closest, option) => {
+    const matchingResponse = scenarios[currentScenario].reply_options.reduce<typeof scenarios[0]['reply_options'][0] & { similarity: number }>((closest, option) => {
       const similarity = content.length / option.template.length;
       if (Math.abs(1 - similarity) < Math.abs(1 - (closest?.similarity || 0))) {
         return { ...option, similarity };
       }
       return closest;
-    }, { similarity: 0 });
+    }, { ...scenarios[currentScenario].reply_options[0], similarity: 0 });
 
     // Show boss response
     setBossResponse(matchingResponse.bossResponse || "Please try again with a more appropriate response.");
