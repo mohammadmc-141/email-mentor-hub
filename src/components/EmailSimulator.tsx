@@ -11,6 +11,24 @@ export function EmailSimulator() {
   const [content, setContent] = useState("");
   const [bossResponse, setBossResponse] = useState("");
   const [showBossResponse, setShowBossResponse] = useState(false);
+  const [isGoodResponse, setIsGoodResponse] = useState(false);
+
+  const handleNextScenario = () => {
+    if (currentScenario < scenarios.length - 1) {
+      setCurrentScenario(prev => prev + 1);
+      setContent("");
+      setBossResponse("");
+      setShowBossResponse(false);
+      setIsGoodResponse(false);
+    } else {
+      toast.success("Congratulations! You've completed all scenarios!");
+      setCurrentScenario(0);
+      setContent("");
+      setBossResponse("");
+      setShowBossResponse(false);
+      setIsGoodResponse(false);
+    }
+  };
 
   const handleSubmit = () => {
     const correctTemplate = scenarios[currentScenario].reply_options.find(
@@ -34,22 +52,10 @@ export function EmailSimulator() {
     const isCorrect = content.length >= correctTemplate.length * 0.7;
 
     if (isCorrect) {
-      toast.success("Great response! Moving to next scenario...");
-      setTimeout(() => {
-        if (currentScenario < scenarios.length - 1) {
-          setCurrentScenario(prev => prev + 1);
-          setContent("");
-          setBossResponse("");
-          setShowBossResponse(false);
-        } else {
-          toast.success("Congratulations! You've completed all scenarios!");
-          setCurrentScenario(0);
-          setContent("");
-          setBossResponse("");
-          setShowBossResponse(false);
-        }
-      }, 3000);
+      setIsGoodResponse(true);
+      toast.success("Great response! Click 'Next Scenario' to continue...");
     } else {
+      setIsGoodResponse(false);
       toast.error("Your response needs improvement. Try to be more comprehensive!");
     }
   };
@@ -91,12 +97,23 @@ export function EmailSimulator() {
             placeholder="Type your response here..."
           />
         </div>
-        <Button 
-          onClick={handleSubmit}
-          className="w-full"
-        >
-          Submit Response
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            onClick={handleSubmit}
+            className="flex-1"
+          >
+            Submit Response
+          </Button>
+          {isGoodResponse && (
+            <Button 
+              onClick={handleNextScenario}
+              variant="secondary"
+              className="flex-1"
+            >
+              Next Scenario
+            </Button>
+          )}
+        </div>
 
         {showBossResponse && (
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
