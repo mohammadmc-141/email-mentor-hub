@@ -18,7 +18,7 @@ export function FallingEmails() {
       const x = Math.random() * window.innerWidth;
       const speed = 1 + Math.random() * 2;
       const rotation = Math.random() * 360;
-      const scale = 0.8 + Math.random() * 1.2; // Increased base scale
+      const scale = 0.8 + Math.random() * 1.2;
       
       return {
         id,
@@ -57,12 +57,14 @@ export function FallingEmails() {
       {emails.map(email => (
         <div
           key={email.id}
-          className="absolute text-5xl opacity-25 drop-shadow-md" // Increased size, opacity, and added shadow
+          className="absolute text-5xl opacity-10 mix-blend-screen"
           style={{
             left: `${email.x}px`,
             top: `${email.y}px`,
             transform: `rotate(${email.rotation}deg) scale(${email.scale})`,
             transition: 'transform 0.5s ease',
+            WebkitTextStroke: '1px #7C3AED',
+            color: 'transparent'
           }}
         >
           ✉️
