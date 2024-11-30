@@ -63,7 +63,7 @@ export function FallingEmails() {
             top: `${email.y}px`,
             transform: `rotate(${email.rotation}deg) scale(${email.scale})`,
             transition: 'transform 0.5s ease',
-            WebkitTextStroke: '1px #7C3AED',
+            WebkitTextStroke: '2px #9b87f5',
             color: 'transparent'
           }}
         >
