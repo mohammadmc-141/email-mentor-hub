@@ -9,6 +9,7 @@ import { INITIAL_LESSONS, type Lesson } from "@/data/lessons";
 import { Quiz } from "@/components/Quiz";
 import { LessonContent } from "@/components/LessonContent";
 import { FinalQuiz } from "@/components/FinalQuiz";
+import { FallingEmails } from "@/components/FallingEmails";
 
 const Index = () => {
   const [showSimulator, setShowSimulator] = useState(false);
@@ -58,6 +59,7 @@ const Index = () => {
   if (!isSignedIn) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-100 via-violet-100 to-indigo-100 flex items-center justify-center p-4">
+        <FallingEmails />
         <SignIn onSignIn={() => setIsSignedIn(true)} />
       </div>
     );
@@ -65,6 +67,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 transition-all duration-500">
+      <FallingEmails />
       <header className="bg-white/90 backdrop-blur-sm border-b border-violet-100 sticky top-0 z-10 transition-all duration-300">
         <div className="container py-6">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent animate-fade-in">
