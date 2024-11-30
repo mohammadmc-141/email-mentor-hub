@@ -8,24 +8,32 @@ export const professionalToneLessonData: Lesson = {
   locked: false,
   content: [
     {
-      title: "Understanding Professional Tone",
-      text: "Professional tone in email communication is a delicate balance between formality and approachability. It requires careful consideration of your word choice, sentence structure, and overall message delivery. The key is to maintain respect and courtesy while clearly conveying your message.\n\nProfessional tone encompasses:\n\n1. Appropriate Level of Formality\n- Consider your relationship with the recipient\n- Match the organization's culture\n- Maintain consistency throughout the email\n\n2. Clear and Precise Language\n- Use industry-standard terminology\n- Avoid ambiguous or vague statements\n- Be specific with requests and information\n\n3. Emotional Intelligence\n- Show empathy when appropriate\n- Maintain composure in challenging situations\n- Consider the recipient's perspective"
+      title: "Be Formal, but Not Too Stiff",
+      text: "Think of a balance between talking to a teacher and talking to a friend. You need to sound respectful but also approachable.\n\nTip: Use words like \"Dear\" and \"Best regards\" instead of \"Hey\" or \"See ya!\"\nExample: \"Dear Mr. Smith\" sounds more professional than \"Yo, Mr. Smith.\""
     },
     {
-      title: "Key Elements of Professional Communication",
-      text: "Successful professional communication relies on several crucial elements:\n\n1. Clarity and Conciseness\n- Use simple, direct language\n- One idea per paragraph\n- Short, focused sentences\n- Active voice over passive voice\n\n2. Respectful Language\n- Polite phrases and expressions\n- Appropriate greetings and closings\n- Recognition of hierarchy when relevant\n- Inclusive language\n\n3. Cultural Awareness\n- Consider international communication norms\n- Be mindful of time zones\n- Respect cultural differences\n- Avoid idioms or colloquialisms\n\n4. Professional Vocabulary\n- Industry-appropriate terminology\n- Formal alternatives to casual phrases\n- Consistent level of sophistication"
+      title: "Keep It Simple and Clear",
+      text: "Say exactly what you mean without extra fluff. Imagine you're giving directions: short and sweet.\n\nTip: Focus on one main idea per paragraph.\nExample: Instead of saying, \"Hey, so about that project, I was thinking if you could maybe help, that'd be great,\" say, \"Could you help with the project? I need advice on [specific part].\""
     },
     {
-      title: "Common Mistakes to Avoid",
-      text: "Being aware of common pitfalls can help maintain professionalism:\n\n1. Language and Tone Issues\n- Using slang or informal abbreviations\n- Writing in all caps (perceived as shouting)\n- Excessive punctuation (!!!)\n- Emotional language or passive-aggressive tone\n\n2. Structural Problems\n- Long, rambling paragraphs\n- Missing or unclear subject lines\n- Lack of proper greeting or closing\n- Poor formatting or organization\n\n3. Content Mistakes\n- Including sensitive or confidential information\n- Making assumptions about the recipient\n- Failing to proofread\n- Sending without necessary attachments\n\n4. Technical Errors\n- Reply-all when unnecessary\n- Wrong recipient(s)\n- Broken links or attachments\n- Incomplete information"
+      title: "Be Respectful",
+      text: "Always use polite language, even if you're frustrated. Think of it as keeping cool in a tricky situation.\n\nTip: Avoid blaming or using words that sound angry.\nExample: Instead of \"You messed this up!\" say, \"I noticed an issue with the order. Can we fix it?\""
     },
     {
-      title: "Professional Email Examples",
-      text: "Let's compare different approaches to common email scenarios:\n\nScenario 1: Following Up on a Meeting\n\nUnprofessional:\n'Hey! Just checking in about yesterday's chat. Need those files ASAP!!'\n\nProfessional:\n'Dear [Name],\n\nI hope this email finds you well. I'm following up on our meeting yesterday regarding [topic]. As discussed, I would appreciate receiving the referenced files at your earliest convenience, preferably by [specific date].\n\nPlease let me know if you need any clarification.\n\nBest regards,\n[Your name]'\n\nScenario 2: Addressing a Concern\n\nUnprofessional:\n'This is totally unacceptable! You guys messed up the order again!'\n\nProfessional:\n'Dear [Name],\n\nI am writing regarding order #12345. I noticed some discrepancies between our original order and the items received. Specifically, [detail the issues].\n\nI would appreciate your assistance in resolving this matter. Please let me know what steps we should take to correct this situation.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\n[Your name]'"
+      title: "Think About the Other Person",
+      text: "Try to understand what the other person might feel or need. This is called empathy. It helps you come across as thoughtful.\n\nTip: If someone might be having a tough day, you can add a kind note like, \"I hope you're doing well.\""
     },
     {
-      title: "Building Professional Relationships Through Email",
-      text: "Email communication can be a powerful tool for building and maintaining professional relationships:\n\n1. Establishing Trust\n- Consistent communication style\n- Reliable response patterns\n- Following through on commitments\n- Maintaining confidentiality\n\n2. Showing Professionalism\n- Anticipating needs and questions\n- Providing complete information\n- Being proactive in communication\n- Accepting responsibility when appropriate\n\n3. Building Rapport\n- Appropriate personal touches\n- Remembering previous interactions\n- Showing genuine interest\n- Maintaining boundaries\n\n4. Long-term Relationship Management\n- Regular check-ins when appropriate\n- Thoughtful follow-ups\n- Celebration of achievements\n- Professional networking maintenance"
+      title: "Mistakes to Avoid",
+      text: "Here are some things that can make your email look unprofessional:\n\n- Using all caps (IT LOOKS LIKE SHOUTING).\n- Adding too many exclamation points (!!!).\n- Forgetting a subject line (the title of your email).\n- Writing long paragraphs that feel like a wall of text."
+    },
+    {
+      title: "How to Build Good Relationships Over Email",
+      text: "Emails aren't just for getting things done—they can help you build connections too!\n\n- Be reliable: If you say you'll do something, follow through.\n- Be thoughtful: Remember things about the other person, like past conversations or achievements.\n- Check in: Send a quick message now and then, just to say hello or share updates."
+    },
+    {
+      title: "Example Scenarios",
+      text: "Following up on something:\nUnprofessional: \"Hey, what's up with that thing we talked about?\"\nProfessional: \"Dear [Name], I'm following up on our meeting about [topic]. Could you please send the files by [date]?\"\n\nFixing a problem:\nUnprofessional: \"You guys messed up again!\"\nProfessional: \"Dear [Name], I noticed an issue with order #12345. Could you help me resolve it? Thanks for your assistance.\""
     }
   ],
   questions: [
