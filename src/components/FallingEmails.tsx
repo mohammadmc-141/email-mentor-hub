@@ -57,17 +57,19 @@ export function FallingEmails() {
       {emails.map(email => (
         <div
           key={email.id}
-          className="absolute text-5xl opacity-10 mix-blend-screen"
+          className="absolute text-4xl"
           style={{
             left: `${email.x}px`,
             top: `${email.y}px`,
             transform: `rotate(${email.rotation}deg) scale(${email.scale})`,
             transition: 'transform 0.5s ease',
-            WebkitTextStroke: '2px #9b87f5',
-            color: 'transparent'
+            WebkitTextStroke: '1.5px #9b87f5',
+            color: 'transparent',
+            opacity: '0.8',
+            filter: 'drop-shadow(0 0 2px rgba(155, 135, 245, 0.3))'
           }}
         >
-          ✉️
+          ✉
         </div>
       ))}
     </div>
