@@ -8,24 +8,28 @@ export const responseTimingLessonData: Lesson = {
   locked: true,
   content: [
     {
-      title: "Understanding Email Response Timing",
-      text: "Proper email response timing is crucial for professional communication:\n\n1. Standard Response Times\n- Urgent matters: Within 2-4 hours\n- Standard business requests: Within 24 hours\n- Non-urgent matters: Within 48 hours\n- FYI emails: Within 72 hours or no response needed\n\n2. Factors Affecting Response Time\n- Sender's position and relationship\n- Time zones and working hours\n- Email complexity and requirements\n- Current workload and priorities\n- Organization's communication policies"
+      title: "1. How Quickly Should You Respond?",
+      text: "Urgent Matters: Within 2-4 hours.\nStandard Requests: Within 24 hours.\nNon-Urgent Matters: Within 48 hours.\nFYI (For Your Information): Within 72 hours, or no reply needed unless asked."
     },
     {
-      title: "Assessing Email Urgency",
-      text: "Learn to evaluate email urgency effectively:\n\n1. Urgency Indicators\n- Subject line markers (Urgent, ASAP, Action Required)\n- Sender's position and authority\n- Deadline mentions\n- Project impact\n- Business criticality\n\n2. Priority Assessment Criteria\n- Impact on business operations\n- Financial implications\n- Client/stakeholder relationships\n- Legal or compliance requirements\n- Team dependencies\n\n3. Urgency vs. Importance Matrix\n- Urgent and Important: Immediate action\n- Important but Not Urgent: Scheduled action\n- Urgent but Not Important: Delegation\n- Neither Urgent nor Important: Later review"
+      title: "2. How to Decide If an Email Is Urgent",
+      text: "Look for clues in the email to decide if you need to act fast:\n\nSubject Line: Words like Urgent, ASAP, or Action Required mean quick attention is needed.\nSender: If it's your boss or a client, prioritize it.\nDeadlines: Emails mentioning deadlines are more urgent.\nImpact: If the email affects a project or business operations, it's important."
     },
     {
-      title: "Managing Response Expectations",
-      text: "Set and manage email response expectations professionally:\n\n1. Communication Policies\n- Clear response time guidelines\n- Out-of-office procedures\n- Emergency contact protocols\n- Delegation processes\n\n2. Expectation Management Techniques\n- Acknowledgment emails\n- Progress updates\n- Delay notifications\n- Alternative contact methods\n\n3. Workload Management\n- Email scheduling\n- Priority queuing\n- Task delegation\n- Time blocking\n\n4. Professional Boundaries\n- Working hours respect\n- Weekend communication policies\n- Vacation response protocols\n- Emergency procedures"
+      title: "3. Urgency vs. Importance",
+      text: "Not all urgent emails are important. Use this matrix to decide:\n\nUrgent\tNot Urgent\nImportant\tAct immediately.\nNot Important\tDelegate to someone else."
     },
     {
-      title: "Out-of-Office Management",
-      text: "Effective out-of-office communication:\n\n1. Auto-Reply Content\n- Absence duration\n- Return date\n- Alternative contacts\n- Emergency procedures\n\n2. Preparation Steps\n- Team notification\n- Task delegation\n- Calendar updates\n- Contact information\n\n3. Return Protocol\n- Email categorization\n- Priority response order\n- Follow-up system\n- Team updates\n\n4. Emergency Handling\n- Designated contacts\n- Escalation procedures\n- Critical issue protocol\n- Communication channels"
+      title: "4. Managing Expectations",
+      text: "It's okay if you can't reply right away, but keep people informed:\n\nAcknowledgment Emails: Send a quick note like, \"Got it! I'll get back to you by [date/time].\"\nProgress Updates: If something takes longer, update the sender.\nDelays: Let people know if there's a delay and why."
     },
     {
-      title: "Response Timing Examples",
-      text: "Example 1: Urgent Client Request\n\nReceived: 10:00 AM\nSubject: URGENT: System Downtime Issue\n\nImmediate Actions:\n1. Send acknowledgment within 15 minutes\n2. Assess situation within 1 hour\n3. Provide status update within 2 hours\n4. Resolution or escalation within 4 hours\n\nExample 2: Standard Project Update\n\nReceived: Monday 3:00 PM\nSubject: Weekly Project Status Update\n\nResponse Timeline:\n1. Review within 24 hours\n2. Gather necessary information\n3. Respond with complete update\n4. Schedule follow-up if needed\n\nExample 3: Non-Urgent Information Request\n\nReceived: Friday 4:00 PM\nSubject: Information for Next Month's Planning\n\nHandling Approach:\n1. Acknowledge receipt if weekend delay\n2. Process during next business day\n3. Respond within 48 hours\n4. Include comprehensive information"
+      title: "5. Out-of-Office Replies",
+      text: "If you're away, set an auto-reply to let people know:\n\nWhat to Include:\nHow long you'll be gone.\nWhen you'll be back.\nWho to contact in your absence.\n\nExample:\n\"Thank you for your email. I am out of the office from [date] to [date] and will respond as soon as possible after my return. For urgent matters, please contact [Name] at [email/phone].\""
+    },
+    {
+      title: "6. Examples of Handling Different Emails",
+      text: "Urgent Client Request\nReceived: 10:00 AM\nSubject: URGENT: System Downtime Issue\n\nWhat to Do:\nAcknowledge within 15 minutes.\nAssess the problem within 1 hour.\nProvide an update within 2 hours.\nResolve or escalate within 4 hours.\n\nStandard Project Update\nReceived: Monday, 3:00 PM\nSubject: Weekly Project Status Update\n\nWhat to Do:\nReview the email within 24 hours.\nGather any necessary info.\nRespond with an update.\nSchedule follow-ups if needed.\n\nNon-Urgent Information Request\nReceived: Friday, 4:00 PM\nSubject: Information for Next Month's Planning\n\nWhat to Do:\nAcknowledge receipt if you won't respond until after the weekend.\nProcess it during the next business day.\nRespond within 48 hours with the needed information."
     }
   ],
   questions: [
