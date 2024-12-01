@@ -40,7 +40,8 @@ export function FallingEmails() {
           }))
           .filter(email => email.y < window.innerHeight);
 
-        if (Math.random() < 0.05) {
+        // Reduced probability of creating new emails from 0.05 to 0.02
+        if (Math.random() < 0.02) {
           return [...updatedEmails, createEmail()];
         }
 
@@ -65,8 +66,8 @@ export function FallingEmails() {
             transition: 'transform 0.5s ease',
             WebkitTextStroke: '1.5px #9b87f5',
             color: 'transparent',
-            opacity: '0.8',
-            filter: 'drop-shadow(0 0 2px rgba(155, 135, 245, 0.3))'
+            opacity: '0.4',
+            filter: 'drop-shadow(0 0 2px rgba(155, 135, 245, 0.2))'
           }}
         >
           ✉
